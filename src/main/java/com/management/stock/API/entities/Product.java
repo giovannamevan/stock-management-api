@@ -10,6 +10,7 @@ import com.management.stock.API.DTOs.ProductDTO;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,7 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "tb_products")
-public class Product {
+public class Product{
 		private String productName;
 		@Id
 		private String productCode;
@@ -29,6 +30,7 @@ public class Product {
 		@DateTimeFormat(pattern = "dd/MM/yyyy")
 		@JsonFormat(pattern="dd/MM/yyyy")
 		private Calendar productExpirationDate;
+		private int productQuantity;
 		
 		public Product (ProductDTO dto) {
 			this.productName = dto.getProductName();
@@ -37,5 +39,6 @@ public class Product {
 			this.productCategory = dto.getProductCategory();
 			this.productWeight = dto.getProductWeight();
 			this.productExpirationDate = dto.getProductExpirationDate();
+			this.productQuantity = dto.getProductQuantity();
 		}
 }

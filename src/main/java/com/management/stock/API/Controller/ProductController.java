@@ -27,12 +27,16 @@ public class ProductController {
 		
 		@GetMapping(value = "/all") 
 		public List<ProductDTO> findAllProducts (){
-			List<ProductDTO> result = productService.findAllProducts();
-			return result;
+			   List<ProductDTO> result = productService.findAllProducts();
+			   return result;
 		}
 		@GetMapping(value = "find/{name}") 
 		public List<ProductDTO> findProductByName (@PathVariable String name){
-			 List<ProductDTO> result = productService.findProductsByName(name);
-			 return result;
+			   List<ProductDTO> result = productService.findProductsByName(name);
+			   return result;
+		}
+		@GetMapping(value = "date")
+		public List<ProductDTO> allProductsOrderedByExDate () {
+			return productService.allProductsOrderedByExDate();
 		}
 }

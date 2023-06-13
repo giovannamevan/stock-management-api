@@ -23,6 +23,7 @@ public class ProductDTO {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Calendar productExpirationDate;
+	private int productQuantity;
 	
 	public ProductDTO (Product entity) {
 		 this.productName = entity.getProductName();
@@ -31,5 +32,6 @@ public class ProductDTO {
 		 this.productCategory = entity.getProductCategory();
 		 this.productWeight = entity.getProductWeight();
 		 this.productExpirationDate = entity.getProductExpirationDate();
+		 this.productQuantity = entity.getProductQuantity();
 	}
 }
