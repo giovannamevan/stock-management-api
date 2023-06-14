@@ -1,15 +1,12 @@
 package com.management.stock.API.services;
 
-
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.management.stock.API.DTOs.ProductDTO;
+import com.management.stock.API.DTOs.ProductUpdateDTO;
 import com.management.stock.API.entities.Product;
 import com.management.stock.API.repositories.ProductRepository;
 
@@ -18,8 +15,14 @@ public class ProductService {
 	@Autowired
 	ProductRepository productRepository;
 	
+	@Transactional
 	public void saveNewProduct (ProductDTO productDTO) {
 		 productRepository.save(new Product(productDTO));
+	}
+	@Transactional
+	public void updateProduct(ProductUpdateDTO dto) {
+		 var product = productRepository.getReferenceById(dto.getProductCode());
+		 product.updateProduct(dto);
 	}
 	
 	public List<ProductDTO> findAllProducts (){

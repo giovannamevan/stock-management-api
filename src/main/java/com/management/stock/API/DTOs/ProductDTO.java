@@ -2,9 +2,7 @@ package com.management.stock.API.DTOs;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
-
 import org.springframework.format.annotation.DateTimeFormat;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.management.stock.API.entities.Product;
 import lombok.AllArgsConstructor;
