@@ -36,4 +36,8 @@ public class ProductService {
 		   List<Product> result = productRepository.AllProductsOrderedByExDate();
 		   return result.stream().map(x -> new ProductDTO(x)).toList();
 	}
+	public List<ProductDTO> findProductsByCategory (String cat){
+		   List<Product> result = productRepository.findProductsByCategory(cat);
+		   return result.stream().map(x -> new ProductDTO(x)).toList();
+	}
 }

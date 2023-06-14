@@ -16,4 +16,8 @@ public interface ProductRepository extends JpaRepository<Product, String> {
 			SELECT * FROM TB_PRODUCTS ORDER BY PRODUCT_EXPIRATION_DATE
 			""")
 	  		List<Product> AllProductsOrderedByExDate ();
+	@Query(nativeQuery = true, value = """
+			SELECT * FROM TB_PRODUCTS WHERE PRODUCT_CATEGORY = :CAT
+			""")
+	  		List<Product> findProductsByCategory (String CAT);
 }
