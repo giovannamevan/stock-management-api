@@ -3,6 +3,7 @@ package com.management.stock.API.Controller;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,6 +29,12 @@ public class ProductController {
 		@PutMapping
 		public void updateProduct (@RequestBody @Validated ProductUpdateDTO product) {
 			  productService.updateProduct(product);
+		}
+		
+		@DeleteMapping(value = "/{code}")
+		public void deleteProduct(@PathVariable String code) {
+			  productService.deleteProduct(code);
+			
 		}
 		
 		@GetMapping(value = "/all") 

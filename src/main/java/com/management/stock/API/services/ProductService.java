@@ -24,6 +24,10 @@ public class ProductService {
 		 var product = productRepository.getReferenceById(dto.getProductCode());
 		 product.updateProduct(dto);
 	}
+	@Transactional
+	public void deleteProduct(String code) {
+		  productRepository.deleteById(code);
+	}
 	
 	public List<ProductDTO> findAllProducts (){
 		   List<Product> result = productRepository.findAll();
