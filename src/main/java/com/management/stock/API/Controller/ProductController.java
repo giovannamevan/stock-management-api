@@ -51,7 +51,7 @@ public class ProductController {
 		public List<ProductDTO> allProductsOrderedByExDate () {
 			return productService.allProductsOrderedByExDate();
 		}
-		@GetMapping(value = "category/{name}")
+		@GetMapping(value = "/{name}")
 		public List<ProductDTO> findProductsByCategory (@PathVariable String name){
 			   return productService.findProductsByCategory(name);
 		}
